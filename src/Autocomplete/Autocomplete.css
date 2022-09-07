@@ -1,0 +1,39 @@
+:root {
+    --mainWidth: 250px;
+    --marginCenter: 0 auto;
+}
+
+
+.autoBox .status {
+    height: 20px;
+    margin: var(--marginCenter);
+    width: var(--mainWidth);
+}
+
+.autoBox ul {
+    margin: var(--marginCenter);
+    padding: 0;
+    list-style: none;
+}
+.autoBox ul li:hover {
+    background: rgba(0,0,0, 0.1);
+    cursor: pointer;
+}
+.autoBox ul li {
+    margin: 5px auto;
+    padding: 5px;
+    border: 1px solid;
+    width: auto;
+    max-width: var(--mainWidth);
+}
+
+#autocomplete {
+    height: 50px;
+    width: var(--mainWidth);
+    border: 1px solid;
+    border-radius: 10px;
+    padding: 0 10px;
+    margin-top: 50px;
+    line-height: 50px;
+    font-size: 25px;
+}
