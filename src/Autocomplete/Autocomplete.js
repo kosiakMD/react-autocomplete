@@ -1,7 +1,7 @@
 import React, { useCallback, useMemo, useState } from 'react';
 import DataService from '../services/data.service';
+import { useDebounce } from '../hooks';
 import './Autocomplete.css';
-import { debounce } from '../helpers';
 
 const Autocomplete = ({onSelect}) => {
 
@@ -16,7 +16,7 @@ const Autocomplete = ({onSelect}) => {
 
   const clearList = useCallback(() => setList([]), [setList]);
 
-  const getList = useCallback(debounce(async (val) => {
+  const getList = useDebounce(async (val) => {
     setLoading(true);
     request && request.clear();
     const newRequest = service.get(val);
@@ -28,7 +28,7 @@ const Autocomplete = ({onSelect}) => {
       setLoading(false);
       setRequest(null);
     }
-  }, 500), [request, service]);
+  }, 500, [request, service]);
 
   const onchange = useCallback((e) => {
     const val = e.target.value;
